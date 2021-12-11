@@ -1,0 +1,11 @@
+C:\Users\AGANG\source\repos\图片放大\图片放大\bin\Debug\图片放大.exe.config
+C:\Users\AGANG\source\repos\图片放大\图片放大\bin\Debug\图片放大.exe
+C:\Users\AGANG\source\repos\图片放大\图片放大\bin\Debug\图片放大.pdb
+C:\Users\AGANG\source\repos\图片放大\图片放大\bin\Debug\图片放大.xml
+C:\Users\AGANG\source\repos\图片放大\图片放大\obj\Debug\图片放大.Form1.resources
+C:\Users\AGANG\source\repos\图片放大\图片放大\obj\Debug\图片放大.Resources.resources
+C:\Users\AGANG\source\repos\图片放大\图片放大\obj\Debug\图片放大.vbproj.GenerateResource.cache
+C:\Users\AGANG\source\repos\图片放大\图片放大\obj\Debug\图片放大.vbproj.CoreCompileInputs.cache
+C:\Users\AGANG\source\repos\图片放大\图片放大\obj\Debug\图片放大.exe
+C:\Users\AGANG\source\repos\图片放大\图片放大\obj\Debug\图片放大.xml
+C:\Users\AGANG\source\repos\图片放大\图片放大\obj\Debug\图片放大.pdb
