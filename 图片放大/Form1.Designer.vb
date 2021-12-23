@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
@@ -40,13 +41,16 @@ Partial Class Form1
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Button8 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button9 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(639, 413)
+        Me.Button1.Location = New System.Drawing.Point(638, 396)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(122, 39)
         Me.Button1.TabIndex = 0
@@ -55,7 +59,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(652, 36)
+        Me.Button2.Location = New System.Drawing.Point(505, 36)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(84, 28)
         Me.Button2.TabIndex = 1
@@ -70,7 +74,7 @@ Partial Class Form1
         '
         Me.TextBox1.Location = New System.Drawing.Point(74, 38)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(552, 21)
+        Me.TextBox1.Size = New System.Drawing.Size(425, 21)
         Me.TextBox1.TabIndex = 2
         '
         'PictureBox1
@@ -93,7 +97,7 @@ Partial Class Form1
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(642, 479)
+        Me.Button3.Location = New System.Drawing.Point(642, 460)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(118, 37)
         Me.Button3.TabIndex = 5
@@ -129,23 +133,23 @@ Partial Class Form1
         '
         Me.Button5.Location = New System.Drawing.Point(74, 516)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(115, 27)
+        Me.Button5.Size = New System.Drawing.Size(91, 27)
         Me.Button5.TabIndex = 9
         Me.Button5.Text = "添加文件"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(274, 516)
+        Me.Button6.Location = New System.Drawing.Point(220, 516)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(105, 27)
+        Me.Button6.Size = New System.Drawing.Size(94, 27)
         Me.Button6.TabIndex = 10
         Me.Button6.Text = "清空列表"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(488, 516)
+        Me.Button7.Location = New System.Drawing.Point(505, 516)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(101, 27)
         Me.Button7.TabIndex = 11
@@ -173,18 +177,49 @@ Partial Class Form1
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(642, 530)
+        Me.Button8.Location = New System.Drawing.Point(642, 516)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(118, 31)
+        Me.Button8.Size = New System.Drawing.Size(118, 27)
         Me.Button8.TabIndex = 13
         Me.Button8.Text = "关于"
         Me.Button8.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"二次元", "三次元"})
+        Me.ComboBox1.Location = New System.Drawing.Point(672, 41)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(88, 20)
+        Me.ComboBox1.TabIndex = 14
+        Me.ComboBox1.Text = "二次元"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(613, 44)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 12)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "图片类型"
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(356, 517)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(95, 26)
+        Me.Button9.TabIndex = 16
+        Me.Button9.Text = "删除选中"
+        Me.Button9.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(790, 573)
+        Me.Controls.Add(Me.Button9)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
@@ -198,6 +233,9 @@ Partial Class Form1
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -224,4 +262,7 @@ Partial Class Form1
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Button8 As Button
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Button9 As Button
 End Class

@@ -10,6 +10,7 @@
         ProgressBar1.Visible = False
         Me.Text = "图片放大"
         Timer1.Enabled = False
+        Button9.Visible = False
     End Sub
     Public Sub Enlarge(strArg As String)
         Dim p As New Process
@@ -28,29 +29,42 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim command As String
-        command = "-i """ + TextBox1.Text + """ -o """ + Mid(TextBox1.Text, 1, Len(TextBox1.Text) - 4) + "_output" + Mid(TextBox1.Text, Len(TextBox1.Text) - 3, 4) + """ -n realesrgan-x4plus-anime"
-        Enlarge(command)
+        If ComboBox1.Text = "二次元" Then
+            command = "-i """ + TextBox1.Text + """ -o """ + Mid(TextBox1.Text, 1, Len(TextBox1.Text) - 4) + "_output" + Mid(TextBox1.Text, Len(TextBox1.Text) - 3, 4) + """ -n realesrgan-x4plus-anime"
+            Enlarge(command)
+        Else
+            command = "-i """ + TextBox1.Text + """ -o """ + Mid(TextBox1.Text, 1, Len(TextBox1.Text) - 4) + "_output" + Mid(TextBox1.Text, Len(TextBox1.Text) - 3, 4) + """ -n realesrgan-x4plus"
+            Enlarge(command)
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        OpenFileDialog1.ShowDialog()
-        TextBox1.Text = OpenFileDialog1.FileName
-        PictureBox1.Image = Image.FromFile(TextBox1.Text)
+        If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
+            TextBox1.Text = OpenFileDialog1.FileName
+            PictureBox1.Image = Image.FromFile(TextBox1.Text)
+        End If
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        OpenFileDialog2.ShowDialog()
-        For Each f In OpenFileDialog2.FileNames
-            ListBox1.Items.Add(f)
-            n += 1
-        Next
-        ProgressBar1.Maximum = n
+        If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
+            For Each f In OpenFileDialog2.FileNames
+                ListBox1.Items.Add(f)
+                n += 1
+            Next
+            ProgressBar1.Maximum = n
+        End If
     End Sub
     Public Sub Threadsub()
         ii = 0
         Dim command As String
+        Dim model As String
+        If ComboBox1.Text = "二次元" Then
+            model = "realesrgan-x4plus-anime"
+        Else
+            model = "realesrgan-x4plus"
+        End If
         For Each f In ListBox1.Items
-            command = "-i """ + f + """ -o """ + Mid(f, 1, Len(f) - 4) + "_output" + Mid(f, Len(f) - 3, 4) + """ -n realesrgan-x4plus-anime"
+            command = "-i """ + f + """ -o """ + Mid(f, 1, Len(f) - 4) + "_output" + Mid(f, Len(f) - 3, 4) + """ -n " + model
             Enlarge(command)
             ii += 1
         Next
@@ -76,6 +90,7 @@
         Button6.Visible = False
         Button7.Visible = False
         ProgressBar1.Visible = False
+        Button9.Visible = False
         Label1.Visible = True
         TextBox1.Visible = True
         Button3.Visible = True
@@ -92,6 +107,7 @@
         Button6.Visible = True
         Button7.Visible = True
         ProgressBar1.Visible = True
+        Button9.Visible = True
         Label1.Visible = False
         TextBox1.Visible = False
         Button3.Visible = False
@@ -109,11 +125,18 @@
             Button7.Enabled = True
 
         End If
+
     End Sub
+
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         MsgBox("支持的格式：
 jpg/png
+版本：1.2
 by AGANG")
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        ListBox1.Items.Remove(ListBox1.SelectedItem)
     End Sub
 End Class
